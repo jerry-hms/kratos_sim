@@ -1,0 +1,170 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "v1/session.proto",
+    "version": "version not set"
+  },
+  "tags": [
+    {
+      "name": "Session"
+    }
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {},
+  "definitions": {
+    "protobufAny": {
+      "type": "object",
+      "properties": {
+        "@type": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": {}
+    },
+    "rpcStatus": {
+      "type": "object",
+      "properties": {
+        "code": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "message": {
+          "type": "string"
+        },
+        "details": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "$ref": "#/definitions/protobufAny"
+          }
+        }
+      }
+    },
+    "v1CreateRelationReply": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "relationId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "scene": {
+          "type": "string"
+        },
+        "sepId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1CreateSessionReply": {
+      "type": "object",
+      "properties": {
+        "sessionId": {
+          "type": "string",
+          "format": "int64"
+        }
+      }
+    },
+    "v1DeleteSessionReply": {
+      "type": "object"
+    },
+    "v1GetRelationReply": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "relationId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "scene": {
+          "type": "string"
+        },
+        "sepId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1GetSessionReply": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "format": "int64"
+        },
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "relId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "sessionName": {
+          "type": "string"
+        },
+        "sepId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "lastSenderInfo": {
+          "$ref": "#/definitions/v1LastSenderInfo"
+        },
+        "lastMessage": {
+          "type": "string"
+        },
+        "unreadMessageNumber": {
+          "type": "integer",
+          "format": "int32"
+        },
+        "createdAt": {
+          "type": "string"
+        }
+      }
+    },
+    "v1LastSenderInfo": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "type": "string",
+          "format": "int64"
+        },
+        "avatar": {
+          "type": "string"
+        },
+        "nickname": {
+          "type": "string"
+        }
+      }
+    },
+    "v1ListSessionReply": {
+      "type": "object"
+    }
+  }
+}

@@ -1,0 +1,81 @@
+syntax = "proto3";
+
+package api.session.v1;
+
+option go_package = "kratos_sim/api/session;session";
+
+service Session {
+	rpc CreateSession (CreateSessionRequest) returns (CreateSessionReply);
+	rpc DeleteSession (DeleteSessionRequest) returns (DeleteSessionReply);
+	rpc GetSession (GetSessionRequest) returns (GetSessionReply);
+	rpc ListSession (ListSessionRequest) returns (ListSessionReply);
+	rpc CreateRelation (CreateRelationReq) returns (CreateRelationReply);
+	rpc GetRelation (GetRelationReq) returns (GetRelationReply);
+}
+
+message LastSenderInfo{
+	int64 user_id = 1;
+	string avatar = 2;
+	string nickname = 3;
+}
+
+message CreateSessionRequest {
+	int64 rel_id = 1;
+	string session_name = 2;
+	LastSenderInfo last_sender_info = 3;
+	string last_message = 4;
+	int32 unread_message_number = 5;
+	int64 user_id = 6;
+}
+message CreateSessionReply {
+	int64 session_id = 1;
+}
+
+message DeleteSessionRequest {}
+message DeleteSessionReply {}
+
+message GetSessionRequest {
+	int64 session_id = 1;
+}
+message GetSessionReply {
+	int64 id = 1;
+	int64 user_id = 2;
+	int64 rel_id = 3;
+	string session_name = 4;
+	int64 sep_id = 5;
+	LastSenderInfo last_sender_info = 6;
+	string last_message = 7;
+	int32 unread_message_number = 8;
+	string created_at = 9;
+}
+
+message ListSessionRequest {}
+message ListSessionReply {}
+
+message CreateRelationReq {
+	int64 user_id = 1;
+	int64 relation_id = 2;
+	string scene = 3;
+}
+message CreateRelationReply {
+	int64 id = 1;
+	int64 user_id = 2;
+	int64 relation_id = 3;
+	string scene = 4;
+	int64 sep_id = 5;
+	string created_at = 6;
+}
+
+message GetRelationReq {
+	int64 user_id = 1;
+	int64 relation_id = 2;
+	string scene = 3;
+}
+message GetRelationReply {
+	int64 id = 1;
+	int64 user_id = 2;
+	int64 relation_id = 3;
+	string scene = 4;
+	int64 sep_id = 5;
+	string created_at = 6;
+}
